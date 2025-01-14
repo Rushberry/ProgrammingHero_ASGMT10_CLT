@@ -25,8 +25,8 @@ const MyReviews = () => {
                     headers: { 'content-type': 'application/json' },
                     body: JSON.stringify({ email })
                 })
-                .then(res => res.json())
-                .then(data => setGames(data))
+                    .then(res => res.json())
+                    .then(data => setGames(data))
             })
     }
     return (
@@ -57,7 +57,18 @@ const MyReviews = () => {
                                             <Link className="bg-black px-3 py-2 rounded-lg border border-white text-[#21f904]" to={`/updateReview/${data._id}`}>Update</Link>
                                         </th>
                                         <th>
-                                            <button className="bg-black px-3 py-2 rounded-lg border border-white text-[#f90404]" onClick={() => { handleDelete(data._id) }}>Delete</button>
+                                            <button className="bg-black px-3 py-2 rounded-lg border border-white text-[#f90404]" onClick={() => document.getElementById(`${data._id}`).showModal()}>Delete</button>
+                                            <dialog id={`${data._id}`} className="modal">
+                                                <div className="modal-box bg-black border border-red-900">
+                                                    <p className="py-4 font-old text-[20px]">Are you sure you want to delete this review? <br />This action cannot be undone.</p>
+                                                    <div className="modal-action">
+                                                        <button className="btn bg-red-900 text-white hover:bg-red-600 text-[16px]" onClick={() => { handleDelete(data._id) }}>Delete</button>
+                                                        <form method="dialog">
+                                                            <button className="btn  text-[16px]">Cancel</button>
+                                                        </form>
+                                                    </div>
+                                                </div>
+                                            </dialog>
                                         </th>
                                     </tr>)
                                 }

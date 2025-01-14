@@ -48,7 +48,7 @@ const AllReviews = () => {
                 <div className="grid grid-cols-3 gap-7 mt-7">
                     {
                         games.map(card => <div key={card._id} className="bg-black border border-white h-full rounded-xl p-7">
-                            <img src={card.thumbnail} alt={card.gameName} className="rounded-xl" />
+                            <img src={card.thumbnail} alt={card.gameName} className="rounded-xl h-[200px] w-[400px] bg-cover bg-center" />
                             <h3 className="text-white mt-3 font-medium text-2xl">{card.gameName}</h3>
                             <p className="text-[18px] flex flex-row gap-2 mb-0.5 text-[#F9C004]"><ReactStars count={5} value={card.rating} edit={false} size={18} activeColor="#F9C004"></ReactStars>({card.rating})</p>
                             <p className="text-[18px] flex flex-row gap-2 mb-0.5 text-[#ffff]">Published: ({card.publishedDate})</p>

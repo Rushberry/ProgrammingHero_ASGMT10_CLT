@@ -15,6 +15,11 @@
       font-family: "Sora", serif;
     }
 
+    /* Modal Full Screen */
+    :root:has(:is(.modal-open, .modal:target, .modal-toggle:checked + .modal, .modal[open])) {
+      scrollbar-gutter: unset;
+    }
+
     .font-old {
       font-family: "Special Elite", serif;
     }
@@ -25,4 +30,5 @@
   <div id="root"></div>
   <script type="module" src="/src/main.jsx"></script>
 </body>
+
 </html>
