@@ -11,6 +11,9 @@ import Home from './elements/Home.jsx';
 import Contact from './elements/Contact.jsx';
 import Faqs from './elements/Faqs.jsx';
 import AddReview from './elements/AddReview.jsx';
+import MyReviews from './elements/MyReviews.jsx';
+import AllReviews from './elements/AllReviews.jsx';
+import Update from './elements/Update.jsx';
 
 const router = createBrowserRouter([
   {
@@ -33,6 +36,19 @@ const router = createBrowserRouter([
       {
         path: "/addReview",
         element: <AddReview></AddReview>
+      },
+      {
+        path: '/myReviews',
+        element: <MyReviews></MyReviews>
+      },
+      {
+        path: '/reviews',
+        element: <AllReviews></AllReviews>
+      },
+      {
+        path: '/updateReview/:id',
+        loader: ({params}) => fetch(`http://localhost:1500/review/${params.id}`),
+        element: <Update></Update>
       }
     ]
   },

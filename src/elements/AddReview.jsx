@@ -37,7 +37,7 @@ const AddReview = () => {
                     <input className="p-4 rounded-2xl " name="rating" type="number" step="0.1" min="0" max="5" placeholder="Rating out of 5*" required />
                     <input className="p-4 rounded-2xl " name="published" type="number" min="1900" max={year} placeholder="Publishing year*" required />
                     <select className="p-4 rounded-2xl " name="genres" placeholder="Genres" required>
-                        <option value="" disabled selected>Genres*</option>
+                        <option className="hidden" value="" disabled selected>Genres*</option>
                         <option value="Action">Action</option>
                         <option value="RPG">RPG</option>
                         <option value="Adventure">Adventure</option>

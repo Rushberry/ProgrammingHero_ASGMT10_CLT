@@ -1,8 +1,24 @@
-import { NavLink } from "react-router-dom";
+import { NavLink, useLocation } from "react-router-dom";
+import { MdNightlightRound } from "react-icons/md";
+import { MdLightMode } from "react-icons/md";
+import { useState } from "react";
+
+
+
 
 const Navbar = () => {
+    const location = useLocation()
+    const [theme, setTheme] = useState(true)
+    const handleChangeTheme = () => {
+        setTheme(!theme)
+    }
     const navLinks = <>
         <div className="flex flex-row gap-4 font-medium">
+            {
+                location.pathname === '/' && <button onClick={handleChangeTheme}>
+                    {theme? <MdNightlightRound /> : <MdLightMode />}
+                </button>
+            }
             <NavLink to="/" className="px-3 py-1.5 rounded-lg">Home</NavLink>
             <NavLink to="/reviews" className="px-3 py-1.5 rounded-lg">All Reviews</NavLink>
             <NavLink to="/addReview" className="px-3 py-1.5 rounded-lg">Add Review</NavLink>

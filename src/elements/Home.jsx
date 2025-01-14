@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import ReactStars from "react-rating-stars-component";
 import { FaChevronLeft, FaChevronRight } from "react-icons/fa";
 import { Link } from "react-router-dom";
+import { Typewriter } from 'react-simple-typewriter'
 const Home = () => {
     const [highRated, setHighRated] = useState([])
     const [latest, setLatest] = useState([])
@@ -40,6 +41,17 @@ const Home = () => {
     }
     return (
         <div className="flex flex-col justify-center items-center py-12 bg-[url('/assets/bg.jpg')] bg-no-repeat bg-cover border-b border-red-900">
+            <h1 className="text-white text-3xl mb-3">
+                <Typewriter
+                    words={['Explore Top-Rated Games!', 'Find Your Next Adventure!', 'Dive Into the World of Gaming!']}
+                    loop={true}
+                    cursor
+                    cursorStyle="_"
+                    typeSpeed={70}
+                    deleteSpeed={50}
+                    delaySpeed={1000}
+                />
+            </h1>
             <div className="carousel w-11/12 rounded-3xl border border-red-900" >
                 <div className={`carousel-item ${slider === 1 ? 'block' : 'hidden'} relative w-full`}>
                     <img
@@ -92,7 +104,7 @@ const Home = () => {
                 <div className="grid grid-cols-3 gap-7 mt-7">
                     {
                         highRated.map(card => <div key={card._id} className="bg-black border border-white h-full rounded-xl p-7">
-                            <img src={card.thumbnail} alt={card.gameName} className="rounded-xl"/>
+                            <img src={card.thumbnail} alt={card.gameName} className="rounded-xl" />
                             <h3 className="text-white mt-3 font-medium text-2xl">{card.gameName}</h3>
                             <p className="text-[18px] flex flex-row gap-2 mb-5 text-[#F9C004]"><ReactStars count={5} value={card.rating} edit={false} size={18} activeColor="#F9C004"></ReactStars>({card.rating})</p>
                             <Link to={`/review/${card._id}`} className="text-white px-5 py-3  bg-[#edad5a] rounded-lg font-medium ">Explore Details</Link>
@@ -103,7 +115,7 @@ const Home = () => {
                 <div className="grid grid-cols-3 gap-7 mt-7">
                     {
                         latest.map(card => <div key={card._id} className="bg-black border border-white h-full rounded-xl p-7">
-                            <img src={card.thumbnail} alt={card.gameName} className="rounded-xl"/>
+                            <img src={card.thumbnail} alt={card.gameName} className="rounded-xl" />
                             <h3 className="text-white mt-3 font-medium text-2xl">{card.gameName}</h3>
                             <p className="text-[18px] flex flex-row gap-2 mb-5 text-[#F9C004]">Published: ({card.publishedDate})</p>
                             <Link to={`/review/${card._id}`} className="text-white px-5 py-3  bg-[#edad5a] rounded-lg font-medium ">Explore Details</Link>
@@ -115,7 +127,7 @@ const Home = () => {
                 <div className="grid grid-cols-3 gap-7 mt-7">
                     {
                         adventure.map(card => <div key={card._id} className="bg-black border border-white h-full rounded-xl p-7">
-                            <img src={card.thumbnail} alt={card.gameName} className="rounded-xl"/>
+                            <img src={card.thumbnail} alt={card.gameName} className="rounded-xl" />
                             <h3 className="text-white mt-3 font-medium text-2xl">{card.gameName}</h3>
                             <p className="text-[18px] flex flex-row gap-2 mb-5 text-[#F9C004]">Genre: ({card.genres})</p>
                             <Link to={`/review/${card._id}`} className="text-white px-5 py-3  bg-[#edad5a] rounded-lg font-medium ">Explore Details</Link>
@@ -126,7 +138,7 @@ const Home = () => {
                 <div className="grid grid-cols-3 gap-7 mt-7">
                     {
                         action.map(card => <div key={card._id} className="bg-black border border-white h-full rounded-xl p-7">
-                            <img src={card.thumbnail} alt={card.gameName} className="rounded-xl"/>
+                            <img src={card.thumbnail} alt={card.gameName} className="rounded-xl" />
                             <h3 className="text-white mt-3 font-medium text-2xl">{card.gameName}</h3>
                             <p className="text-[18px] flex flex-row gap-2 mb-5 text-[#F9C004]">Genre: ({card.genres})</p>
                             <Link to={`/review/${card._id}`} className="text-white px-5 py-3  bg-[#edad5a] rounded-lg font-medium ">Explore Details</Link>
@@ -137,7 +149,7 @@ const Home = () => {
                 <div className="grid grid-cols-3 gap-7 mt-7">
                     {
                         rpg.map(card => <div key={card._id} className="bg-black border border-white h-full rounded-xl p-7">
-                            <img src={card.thumbnail} alt={card.gameName} className="rounded-xl"/>
+                            <img src={card.thumbnail} alt={card.gameName} className="rounded-xl" />
                             <h3 className="text-white mt-3 font-medium text-2xl">{card.gameName}</h3>
                             <p className="text-[18px] flex flex-row gap-2 mb-5 text-[#F9C004]">Genre: ({card.genres})</p>
                             <Link to={`/review/${card._id}`} className="text-white px-5 py-3  bg-[#edad5a] rounded-lg font-medium ">Explore Details</Link>
