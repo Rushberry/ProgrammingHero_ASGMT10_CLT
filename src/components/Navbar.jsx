@@ -1,4 +1,4 @@
-import { NavLink, useLocation } from "react-router-dom";
+import { NavLink, useLocation, useNavigate } from "react-router-dom";
 import { MdNightlightRound } from "react-icons/md";
 import { MdLightMode } from "react-icons/md";
 import { useContext } from "react";
@@ -10,9 +10,11 @@ import 'react-tooltip/dist/react-tooltip.css'
 
 const Navbar = () => {
     const location = useLocation()
+    const navigate = useNavigate()
     const { user, signOutUser, theme, setTheme } = useContext(AuthContext)
     const handleSignOut = () => {
         signOutUser()
+        navigate('/')
     }
     console.log(user)
     const handleChangeTheme = () => {
@@ -22,9 +24,13 @@ const Navbar = () => {
         <div className="flex flex-row gap-4 font-medium">
             <NavLink to="/" className="px-3 py-1.5 rounded-lg">Home</NavLink>
             <NavLink to="/reviews" className="px-3 py-1.5 rounded-lg">All Reviews</NavLink>
-            <NavLink to="/addReview" className="px-3 py-1.5 rounded-lg">Add Review</NavLink>
-            <NavLink to="/myReviews" className="px-3 py-1.5 rounded-lg">My Reviews</NavLink>
-            <NavLink to="/myWatchlist" className="px-3 py-1.5 rounded-lg">Game WatchList</NavLink>
+            {
+                user && <>
+                    <NavLink to="/addReview" className="px-3 py-1.5 rounded-lg">Add Review</NavLink>
+                    <NavLink to="/myReviews" className="px-3 py-1.5 rounded-lg">My Reviews</NavLink>
+                    <NavLink to="/myWatchlist" className="px-3 py-1.5 rounded-lg">Game WatchList</NavLink>
+                </>
+            }
             <NavLink to="/faqs" className="px-3 py-1.5 rounded-lg">FAQs</NavLink>
             <NavLink to="/contact" className="px-3 py-1.5 rounded-lg">Contact</NavLink>
         </div>
