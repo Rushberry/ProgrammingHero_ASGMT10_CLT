@@ -1,9 +1,11 @@
-import { useLoaderData } from "react-router-dom";
+import { useState } from "react";
+import { useLoaderData, useNavigate } from "react-router-dom";
 
 const Update = () => {
     const loader = useLoaderData()
+    const navigate = useNavigate()
     let data = loader[0];
-    console.log(data)
+    const [genres, setGenres] = useState(data.genres)
     let year = new Date().getFullYear()
     const user = "Rushberry"
     const userEmail = "info.rushberry@gmail.com"
@@ -15,7 +17,8 @@ const Update = () => {
         const rating = form.rating.value;
         const publishedDate = form.published.value;
         const genres = form.genres.value;
-        const gameData = {thumbnail, gameName, rating, publishedDate, genres}
+        const description = form.description.value;
+        const gameData = {thumbnail, gameName, rating, publishedDate, genres, description}
         fetch(`http://localhost:1500/updateReview/${data._id}`, {
             method: 'PUT',
             headers: {
@@ -24,7 +27,10 @@ const Update = () => {
             body: JSON.stringify(gameData)
         })
         .then(res => res.json())
-        .then(data => console.log(data))
+        .then(data => {console.log(data)
+        form.reset()
+        navigate(-1)
+    } )
     }
     return (
         <div className="bg-[url('https://wallpapers.com/images/high/red-gaming-zfvvm7d6cpq155ei.webp')] flex justify-center items-center h-auto bg-cover bg-no-repeat">
@@ -35,9 +41,10 @@ const Update = () => {
                 <form className="flex flex-col mx-auto w-11/12 gap-4 mb-[60px]" onSubmit={handleSubmit}>
                     <input className="p-4 rounded-2xl " defaultValue={data.thumbnail} name="cover" type="text" placeholder="Game Cover Image/Thumbnail*" required />
                     <input className="p-4 rounded-2xl " defaultValue={data.gameName} name="gameName" type="text" placeholder="Game Title/ Name*" required />
+                    <input className="p-4 rounded-2xl " defaultValue={data.description} name="description" type="text" placeholder="Review Description*" required />
                     <input className="p-4 rounded-2xl " defaultValue={data.rating} name="rating" type="number" step="0.1" min="0" max="5" placeholder="Rating out of 5*" required />
                     <input className="p-4 rounded-2xl " defaultValue={data.publishedDate} name="published" type="number" min="1900" max={year} placeholder="Publishing year*" required />
-                    <select className="p-4 rounded-2xl " value={data.genres} name="genres" placeholder="Genres" required>
+                    <select className="p-4 rounded-2xl " value={genres} onChange={(e) => setGenres(e.target.value)} name="genres" placeholder="Genres" required>
                         <option value="Action">Action</option>
                         <option value="RPG">RPG</option>
                         <option value="Adventure">Adventure</option>

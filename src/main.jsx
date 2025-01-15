@@ -14,6 +14,12 @@ import AddReview from './elements/AddReview.jsx';
 import MyReviews from './elements/MyReviews.jsx';
 import AllReviews from './elements/AllReviews.jsx';
 import Update from './elements/Update.jsx';
+import Review from './elements/Review.jsx';
+import MyWatchlist from './elements/MyWatchlist.jsx';
+import Login from './authentication/Login.jsx';
+import Register from './authentication/Register.jsx';
+import AuthProvider from './providers/AuthProvider.jsx';
+import AccessProvider from './providers/AccessProvider.jsx';
 
 const router = createBrowserRouter([
   {
@@ -35,11 +41,11 @@ const router = createBrowserRouter([
       },
       {
         path: "/addReview",
-        element: <AddReview></AddReview>
+        element: <AccessProvider><AddReview></AddReview></AccessProvider>
       },
       {
         path: '/myReviews',
-        element: <MyReviews></MyReviews>
+        element: <AccessProvider><MyReviews></MyReviews></AccessProvider>
       },
       {
         path: '/reviews',
@@ -47,8 +53,25 @@ const router = createBrowserRouter([
       },
       {
         path: '/updateReview/:id',
-        loader: ({params}) => fetch(`http://localhost:1500/review/${params.id}`),
-        element: <Update></Update>
+        loader: ({ params }) => fetch(`http://localhost:1500/review/${params.id}`),
+        element: <AccessProvider><Update></Update></AccessProvider>
+      },
+      {
+        path: '/review/:id',
+        loader: ({ params }) => fetch(`http://localhost:1500/review/${params.id}`),
+        element: <AccessProvider><Review></Review></AccessProvider>
+      },
+      {
+        path: '/myWatchlist',
+        element: <AccessProvider><MyWatchlist></MyWatchlist></AccessProvider>
+      },
+      {
+        path: '/login',
+        element: <Login></Login>
+      },
+      {
+        path: '/register',
+        element: <Register></Register>
       }
     ]
   },
@@ -56,6 +79,8 @@ const router = createBrowserRouter([
 
 createRoot(document.getElementById('root')).render(
   <StrictMode>
-    <RouterProvider router={router} />
+    <AuthProvider>
+      <RouterProvider router={router} />
+    </AuthProvider>
   </StrictMode>,
 )
