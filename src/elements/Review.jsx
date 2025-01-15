@@ -1,10 +1,13 @@
 import { useLoaderData, useNavigate } from "react-router-dom";
 import ReactStars from "react-rating-stars-component";
+import { AuthContext } from "../providers/AuthProvider";
+import { useContext } from "react";
 
 
 const Review = () => {
-    const user = "Rushberrry"
-    const userEmail = "info.rushberry@gmail.com"
+    const {user} = useContext(AuthContext)
+    const userName = user.displayName;
+    const userEmail = user.email;
     const loader = useLoaderData()
     const navigate = useNavigate()
     const handleGoBack = () => {
@@ -12,7 +15,7 @@ const Review = () => {
     }
     let data = loader[0];
     const handleAddWatchlist = () => {
-        const name = user;
+        const name = userName;
         const email = userEmail;
         const reviewId = data._id;
         const gameName = data.gameName;

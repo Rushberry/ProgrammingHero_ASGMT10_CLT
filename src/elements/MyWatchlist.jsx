@@ -1,9 +1,11 @@
-import { useEffect, useState } from "react";
+import { useContext, useEffect, useState } from "react";
 import { Link } from "react-router-dom";
+import { AuthContext } from "../providers/AuthProvider";
 
 const MyWatchlist = () => {
     const [games, setGames] = useState([])
-    const email = "info.rushberry@gmail.com"
+    const { user } = useContext(AuthContext)
+    const email = user.email;
     useEffect(() => {
         fetch('http://localhost:1500/myWatchlist', {
             method: 'POST',

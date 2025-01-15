@@ -1,7 +1,11 @@
+import { useContext } from "react";
+import { AuthContext } from "../providers/AuthProvider";
+
 const AddReview = () => {
     let year = new Date().getFullYear()
-    const user = "Rushberrry"
-    const userEmail = "info.rushberry@gmail.com"
+    const {user} = useContext(AuthContext)
+    const userName = user.displayName;
+    const userEmail = user.email;
     const handleSubmit = e => {
         e.preventDefault()
         const form = e.target;
@@ -33,7 +37,7 @@ const AddReview = () => {
                     <p className="text-[16px] font-normal lg:w-[796px]">Share your thoughts on your favorite games! Submit a review and help others discover the best gaming experiences. Let your voice be heard!</p>
                 </div>
                 <form className="flex flex-col mx-auto w-11/12 gap-4 mb-[60px]" onSubmit={handleSubmit}>
-                    <input className="p-4 rounded-2xl " name="cover" type="text" placeholder="Game Cover Image/Thumbnail*" required />
+                    <input className="p-4 rounded-2xl " name="cover" type="text" placeholder="Game Cover Image/Thumbnail Link*" required />
                     <input className="p-4 rounded-2xl " name="gameName" type="text" placeholder="Game Title/ Name*" required />
                     <input className="p-4 rounded-2xl " name="description" type="text" placeholder="Review Description*" required />
                     <input className="p-4 rounded-2xl " name="rating" type="number" step="0.1" min="0" max="5" placeholder="Rating out of 5*" required />
@@ -44,7 +48,7 @@ const AddReview = () => {
                         <option value="RPG">RPG</option>
                         <option value="Adventure">Adventure</option>
                     </select>
-                    <input className="p-4 rounded-2xl opacity-1" value={user} disabled name="name" type="email" placeholder="User Email*" required />
+                    <input className="p-4 rounded-2xl opacity-1" value={userName} disabled name="name" type="email" placeholder="User Email*" required />
                     <input className="p-4 rounded-2xl opacity-1" value={userEmail} disabled name="email" type="text" placeholder="User Name*" required />
                     <button className="bg-red-900 font-old  rounded-2xl w-[200px] font-semibold  py-[11px] cursor-pointer text-white text-[20px] flex justify-center items-center gap-[14px]" type="submit">Submit</button>
                 </form>

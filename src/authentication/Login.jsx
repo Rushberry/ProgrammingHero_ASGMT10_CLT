@@ -60,11 +60,11 @@ const Login = () => {
                         <form className="space-y-4 md:space-y-6" onSubmit={handleLogin}>
                             <div>
                                 <label className="block mb-2 text-sm font-medium text-white">Email Address</label>
-                                <input type="email" onChange={handleEmailChange} name="email" id="email" className="bg-gray-50 border border-gray-300 text-white rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5" placeholder="Enter your email" required />
+                                <input type="email" onChange={handleEmailChange} name="email" id="email" className="bg-gray-50 border border-gray-300 text-black rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5" placeholder="Enter your email" required />
                             </div>
                             <div className="relative">
                                 <label className="block mb-2 text-sm font-medium text-white">Password</label>
-                                <input type={showPass ? 'text' : 'password'} name="password" id="password" placeholder="Enter your password" className="bg-gray-50 border border-gray-300 text-white rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5" required />
+                                <input type={showPass ? 'text' : 'password'} name="password" id="password" placeholder="Enter your password" className="bg-gray-50 border border-gray-300 text-black rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5" required />
                                 <div className="absolute right-4 top-10 cursor-pointer" onClick={showPassword}>{showPass ? <FaEyeSlash size={20} /> : <FaEye size={20} />}</div>
                             </div>
                             <p className="text-red-500">
