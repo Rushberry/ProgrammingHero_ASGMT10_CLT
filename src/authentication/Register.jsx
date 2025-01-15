@@ -2,8 +2,10 @@ import { useContext, useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { AuthContext } from "../providers/AuthProvider";
 import { FaEye, FaEyeSlash } from "react-icons/fa";
+import { ToastContainer, toast } from 'react-toastify';
+
 const Register = () => {
-    const { setUser, user, updateUser, createUser, signInWithGoogle } = useContext(AuthContext)
+    const { setUser, updateUser, createUser, signInWithGoogle } = useContext(AuthContext)
     const [showPass, setShowPass] = useState(false)
     const [error, setError] = useState(null)
     const navigate = useNavigate()
@@ -20,6 +22,7 @@ const Register = () => {
         const passwordRegex = /^(?=.*[a-z])(?=.*[A-Z]).{6,}$/;
         if (!passwordRegex.test(password)) {
             setError('Password must have at least 1 uppercase letter, 1 lowercase letter, and be at least 6 characters long.');
+            console.log(error)
             return;
         }
         createUser(email, password)
@@ -33,7 +36,17 @@ const Register = () => {
                         setUser((prev) => {
                             return { ...prev, displayName: name, photoURL: photo }
                         })
-                        navigate('/')
+                        toast.success('Registered Successfully!', {
+                            position: "top-right",
+                            autoClose: 2000,
+                            hideProgressBar: false,
+                            closeOnClick: false,
+                            pauseOnHover: false,
+                            theme: "light",
+                        });
+                        setTimeout(() => {
+                            navigate('/')
+                        }, 2050)
                     })
                     .catch((err) => setError(err.message))
                 e.target.reset()
@@ -48,7 +61,17 @@ const Register = () => {
             .then(result => {
                 setUser(result.user)
                 // console.log(result)
-                navigate('/');
+                toast.success('Registered Successfully!', {
+                    position: "top-right",
+                    autoClose: 2000,
+                    hideProgressBar: false,
+                    closeOnClick: false,
+                    pauseOnHover: false,
+                    theme: "light",
+                });
+                setTimeout(() => {
+                    navigate('/')
+                }, 2050)
             })
             .catch(err => {
                 setError(err.message)
@@ -56,7 +79,8 @@ const Register = () => {
     }
     return (
         <div className="py-[80px] bg-[url('https://wallpapers.com/images/high/red-gaming-zfvvm7d6cpq155ei.webp')] flex justify-center items-center h-auto bg-cover bg-no-repeat">
-                <div className="w-full bg-transparent backdrop-blur-md border border-red-900 rounded-3xl mt-12 mx-4 md:mt-0 sm:max-w-md xl:p-0">
+            <ToastContainer></ToastContainer>
+            <div className="w-full bg-transparent backdrop-blur-md border border-red-900 rounded-3xl mt-12 mx-4 md:mt-0 sm:max-w-md xl:p-0">
                 <div className="p-6 space-y-4 md:space-y-6 sm:p-8">
                     <h1 className="text-xl font-old font-bold leading-tight tracking-tight text-white md:text-2xl">
                         Register your account
@@ -70,7 +94,7 @@ const Register = () => {
                     <form className="space-y-4 md:space-y-6" onSubmit={handleRegister}>
                         <div>
                             <label className="block mb-2 text-sm font-medium text-white">Full Name</label>
-                            <input type="text" name="name" id="name" className="bg-gray-50 border border-gray-300 text-black rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5" placeholder="Enter your name" required/>
+                            <input type="text" name="name" id="name" className="bg-gray-50 border border-gray-300 text-black rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5" placeholder="Enter your name" required />
                         </div>
                         <div>
                             <label className="block mb-2 text-sm font-medium text-white">Photo URL</label>
@@ -92,10 +116,11 @@ const Register = () => {
                         <p className="text-sm font-light text-gray-500">
                             Already have an account? <Link to="/login" className="font-medium text-primary-600 hover:underline">Login</Link>
                         </p>
+                        
                     </form>
                 </div>
-                </div>
             </div>
+        </div>
     );
 };
 

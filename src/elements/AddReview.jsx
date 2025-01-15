@@ -1,5 +1,7 @@
 import { useContext } from "react";
 import { AuthContext } from "../providers/AuthProvider";
+import { ToastContainer, toast } from 'react-toastify';
+
 
 const AddReview = () => {
     let year = new Date().getFullYear()
@@ -26,11 +28,23 @@ const AddReview = () => {
             body: JSON.stringify(review)
         })
         .then(res => res.json())
-        .then(data => console.log(data))
+        .then(data => {
+            // console.log(data)
+        toast.success('Review Added Successfully!', {
+            position: "top-right",
+            autoClose: 2000,
+            hideProgressBar: false,
+            closeOnClick: false,
+            pauseOnHover: false,
+            theme: "light",
+        });
+        }
+    )
         e.target.reset()
     }
     return (
         <div className="bg-[url('https://wallpapers.com/images/high/red-gaming-zfvvm7d6cpq155ei.webp')] flex justify-center items-center h-auto bg-cover bg-no-repeat">
+            <ToastContainer></ToastContainer>
             <div className="bg-transparent my-[100px] backdrop-blur-lg border border-red-900 rounded-3xl mx-11">
                 <div className="flex flex-col p-8 gap-4 text-white text-center w-full justify-center items-center">
                     <h1 className="font-bold text-[32px] font-old">Add New Review</h1>

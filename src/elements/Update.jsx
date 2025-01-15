@@ -1,5 +1,7 @@
 import { useState } from "react";
 import { useLoaderData, useNavigate } from "react-router-dom";
+import { ToastContainer, toast } from 'react-toastify';
+
 
 const Update = () => {
     const loader = useLoaderData()
@@ -18,22 +20,34 @@ const Update = () => {
         const publishedDate = form.published.value;
         const genres = form.genres.value;
         const description = form.description.value;
-        const gameData = {thumbnail, gameName, rating, publishedDate, genres, description}
+        const gameData = { thumbnail, gameName, rating, publishedDate, genres, description }
         fetch(`http://localhost:1500/updateReview/${data._id}`, {
             method: 'PUT',
             headers: {
-                "content-type":"application/json"
+                "content-type": "application/json"
             },
             body: JSON.stringify(gameData)
         })
-        .then(res => res.json())
-        .then(data => {console.log(data)
-        form.reset()
-        navigate(-1)
-    } )
+            .then(res => res.json())
+            .then(data => {
+                console.log(data)
+                form.reset()
+                toast.success('Updated Successfully!', {
+                    position: "top-right",
+                    autoClose: 2000,
+                    hideProgressBar: false,
+                    closeOnClick: false,
+                    pauseOnHover: false,
+                    theme: "light",
+                });
+                setTimeout(() => {
+                    navigate(-1)
+                }, 2050)
+            })
     }
     return (
         <div className="bg-[url('https://wallpapers.com/images/high/red-gaming-zfvvm7d6cpq155ei.webp')] flex justify-center items-center h-auto bg-cover bg-no-repeat">
+            <ToastContainer></ToastContainer>
             <div className="bg-transparent my-[100px] backdrop-blur-lg border border-red-900 rounded-3xl mx-11 w-11/12">
                 <div className="flex flex-col p-8 gap-4 text-white text-center w-full justify-center items-center">
                     <h1 className="font-bold text-[32px] font-old">Update Review</h1>
