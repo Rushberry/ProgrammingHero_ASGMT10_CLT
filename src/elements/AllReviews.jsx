@@ -6,7 +6,7 @@ import ReactStars from "react-rating-stars-component";
 const AllReviews = () => {
     const [games, setGames] = useState([])
     useEffect(() => {
-        fetch('http://localhost:1500/reviews')
+        fetch('https://chill-gamer-server-virid.vercel.app/reviews')
             .then(res => res.json())
             .then(data => setGames(data))
     }, [])
@@ -22,7 +22,7 @@ const AllReviews = () => {
 
     const handleGenres = e => {
         const value = e.target.value;
-        fetch(`http://localhost:1500/${value}`)
+        fetch(`https://chill-gamer-server-virid.vercel.app/${value}`)
             .then(res => res.json())
             .then(data => setGames(data))
     }

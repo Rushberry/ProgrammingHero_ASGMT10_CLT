@@ -21,7 +21,7 @@ const Update = () => {
         const genres = form.genres.value;
         const description = form.description.value;
         const gameData = { thumbnail, gameName, rating, publishedDate, genres, description }
-        fetch(`http://localhost:1500/updateReview/${data._id}`, {
+        fetch(`https://chill-gamer-server-virid.vercel.app/updateReview/${data._id}`, {
             method: 'PUT',
             headers: {
                 "content-type": "application/json"

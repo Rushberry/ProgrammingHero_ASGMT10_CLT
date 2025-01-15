@@ -20,7 +20,7 @@ const AddReview = () => {
         const gameName = form.gameName.value;
         const description = form.description.value;
         const review = {name, email, thumbnail, gameName, rating, publishedDate, genres, description}
-        fetch(`http://localhost:1500/addReview`, {
+        fetch(`https://chill-gamer-server-virid.vercel.app/addReview`, {
             method: 'POST',
             headers: {
                 "content-type": "application/json"

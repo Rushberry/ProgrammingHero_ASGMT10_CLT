@@ -53,12 +53,12 @@ const router = createBrowserRouter([
       },
       {
         path: '/updateReview/:id',
-        loader: ({ params }) => fetch(`http://localhost:1500/review/${params.id}`),
+        loader: ({ params }) => fetch(`https://chill-gamer-server-virid.vercel.app/review/${params.id}`),
         element: <AccessProvider><Update></Update></AccessProvider>
       },
       {
         path: '/review/:id',
-        loader: ({ params }) => fetch(`http://localhost:1500/review/${params.id}`),
+        loader: ({ params }) => fetch(`https://chill-gamer-server-virid.vercel.app/review/${params.id}`),
         element: <AccessProvider><Review></Review></AccessProvider>
       },
       {

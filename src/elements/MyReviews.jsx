@@ -7,7 +7,7 @@ const MyReviews = () => {
     const {user} = useContext(AuthContext)
     const email = user.email;
     useEffect(() => {
-        fetch('http://localhost:1500/myReviews', {
+        fetch('https://chill-gamer-server-virid.vercel.app/myReviews', {
             method: 'POST',
             headers: { 'content-type': 'application/json' },
             body: JSON.stringify({ email })
@@ -16,13 +16,13 @@ const MyReviews = () => {
             .then(data => setGames(data))
     }, [])
     const handleDelete = e => {
-        fetch(`http://localhost:1500/delete/${e}`, {
+        fetch(`https://chill-gamer-server-virid.vercel.app/delete/${e}`, {
             method: 'DELETE'
         })
             .then(res => res.json())
             .then(data => {
                 console.log(data)
-                fetch('http://localhost:1500/myReviews', {
+                fetch('https://chill-gamer-server-virid.vercel.app/myReviews', {
                     method: 'POST',
                     headers: { 'content-type': 'application/json' },
                     body: JSON.stringify({ email })

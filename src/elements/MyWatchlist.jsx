@@ -7,7 +7,7 @@ const MyWatchlist = () => {
     const { user } = useContext(AuthContext)
     const email = user.email;
     useEffect(() => {
-        fetch('http://localhost:1500/myWatchlist', {
+        fetch('https://chill-gamer-server-virid.vercel.app/myWatchlist', {
             method: 'POST',
             headers: { 'content-type': 'application/json' },
             body: JSON.stringify({ email })

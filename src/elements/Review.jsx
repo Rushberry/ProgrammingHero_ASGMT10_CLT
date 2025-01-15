@@ -23,7 +23,7 @@ const Review = () => {
         const genres = data.genres;
         const rating = data.rating;
         const watch = {name, email, reviewId, gameName, publishedDate, genres, rating}
-        fetch('http://localhost:1500/addWatchlist', {
+        fetch('https://chill-gamer-server-virid.vercel.app/addWatchlist', {
             method: 'POST',
             headers: { 'content-type': 'application/json' },
             body: JSON.stringify(watch)
