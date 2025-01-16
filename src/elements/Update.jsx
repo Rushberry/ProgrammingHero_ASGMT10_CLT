@@ -48,7 +48,7 @@ const Update = () => {
     return (
         <div className="bg-[url('https://wallpapers.com/images/high/red-gaming-zfvvm7d6cpq155ei.webp')] flex justify-center items-center h-auto bg-cover bg-no-repeat">
             <ToastContainer></ToastContainer>
-            <div className="bg-transparent my-[100px] backdrop-blur-lg border border-red-900 rounded-3xl mx-11 w-11/12">
+            <div className="bg-transparent my-[100px] backdrop-blur-lg border border-red-900 rounded-3xl lg:mx-11 mx-5 lg:w-8/12 w-10/12">
                 <div className="flex flex-col p-8 gap-4 text-white text-center w-full justify-center items-center">
                     <h1 className="font-bold text-[32px] font-old">Update Review</h1>
                 </div>
