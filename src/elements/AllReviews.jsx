@@ -29,23 +29,23 @@ const AllReviews = () => {
     return (
         <div className="flex flex-col justify-center items-center py-12 bg-[url('/assets/bg.jpg')] bg-no-repeat bg-cover border-b border-red-900">
             <div className="flex flex-col justify-start items-start text-left w-11/12">
-                <div className="w-full flex justify-between items-center">
-                    <h1 className="font-old lg:text-3xl md:text-xl text-lg text-white text-left">All Reviews</h1>
+                <div className="w-full flex lg:flex-row flex-col justify-between items-center">
+                    <h1 className="font-old lg:text-3xl text-2xl mb-3 text-white text-left">All Reviews</h1>
                     <div className="flex flex-row gap-3">
                         <select className="p-3 px-4 rounded-2xl text-white font-old bg-black border border-white font-medium text-[18px]" name="sortBy" placeholder="Sort By" onChange={handleSortBy}>
                             <option className="hidden" value="" disabled selected>Sort By</option>
-                            <option value="Rating">Rating</option>
-                            <option value="Year">Year</option>
+                            <option className="text-[18px]" value="Rating">Rating</option>
+                            <option className="text-[18px]" value="Year">Year</option>
                         </select>
                         <select className="p-3 px-4 rounded-2xl text-white font-old bg-black border border-white font-medium text-[18px]" name="genres" placeholder="Genres" onChange={handleGenres}>
                             <option className="hidden" value="" disabled selected>Genres</option>
-                            <option value="action">Action</option>
-                            <option value="rpg">RPG</option>
-                            <option value="adventure">Adventure</option>
+                            <option className="text-[18px]" value="action">Action</option>
+                            <option className="text-[18px]" value="rpg">RPG</option>
+                            <option className="text-[18px]" value="adventure">Adventure</option>
                         </select>
                     </div>
                 </div>
-                <div className="grid grid-cols-3 gap-7 mt-7">
+                <div className="lg:grid-cols-3 md:grid-cols-2 grid-cols-1 grid gap-6 mt-7">
                     {
                         games.map(card => <div key={card._id} className="bg-black border border-white h-full rounded-xl p-7">
                             <img src={card.thumbnail} alt={card.gameName} className="rounded-xl h-[200px] w-[400px] bg-cover bg-center" />

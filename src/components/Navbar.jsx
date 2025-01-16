@@ -51,7 +51,7 @@ const Navbar = () => {
                             </a>
                             {
                                 location.pathname === '/' && <button className={`text-2xl rounded-full ${theme ? 'bg-black' : 'bg-white'} border-red-900 ${theme ? 'text-white' : 'text-black'} border p-3`} onClick={handleChangeTheme}>
-                                    {theme ? <MdNightlightRound /> : <MdLightMode />}
+                                    {theme ? <MdLightMode /> : <MdNightlightRound/>}
                                 </button>
                             }
                         </div>
@@ -62,7 +62,7 @@ const Navbar = () => {
                             <NavLink to="/register" className="py-1 font-medium px-3 bg-black border border-red-900 gap-2 text-[16px] rounded-full text-white">Register</NavLink>
                             {
                                 location.pathname === '/' && <button className={`text-2xl rounded-full ${theme ? 'bg-black' : 'bg-white'} border-red-900 ${theme ? 'text-white' : 'text-black'} border p-3`} onClick={handleChangeTheme}>
-                                    {theme ? <MdNightlightRound /> : <MdLightMode />}
+                                    {theme ? <MdLightMode /> : <MdNightlightRound/>}
                                 </button>
                             }
                         </div>
@@ -72,7 +72,7 @@ const Navbar = () => {
                     <div className="lg:hidden flex">
                         {
                             location.pathname === '/' && <button className={`text-2xl rounded-full ${theme ? 'bg-black' : 'bg-white'} border-red-900 ${theme ? 'text-white' : 'text-black'} border p-2`} onClick={handleChangeTheme}>
-                                {theme ? <MdNightlightRound /> : <MdLightMode />}
+                                {theme ? <MdLightMode /> : <MdNightlightRound/>}
                             </button>
                         }
                     </div>

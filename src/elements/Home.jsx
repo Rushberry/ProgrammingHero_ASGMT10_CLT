@@ -109,7 +109,7 @@ const Home = () => {
                 </div>
             </div>
             <div className="flex flex-col justify-start items-start text-left w-11/12">
-                <h1 className={`font-old lg:text-3xl md:text-xl text-lg ${boldText} mt-12 text-left`}>Highest Rated Games</h1>
+                <h1 className={`font-old lg:text-3xl text-2xl mb-3 ${boldText} mt-12 text-left`}>Highest Rated Games</h1>
                 <div className="lg:grid-cols-3 md:grid-cols-2 grid-cols-1 grid gap-6">
                     {
                         highRated.map(card => <div key={card._id} className={`${bg} border ${border} h-full rounded-xl p-7`}>
@@ -120,7 +120,7 @@ const Home = () => {
                         </div>)
                     }
                 </div>
-                <h1 className={`font-old lg:text-3xl md:text-xl text-lg ${boldText} mt-12 text-left`}>Latest Releases</h1>
+                <h1 className={`font-old lg:text-3xl text-2xl mb-3 ${boldText} mt-12 text-left`}>Latest Releases</h1>
                 <div className="lg:grid-cols-3 md:grid-cols-2 grid-cols-1 grid gap-6">
                     {
                         latest.map(card => <div key={card._id} className={`${bg} border ${border} h-full rounded-xl p-7`}>
@@ -131,8 +131,8 @@ const Home = () => {
                         </div>)
                     }
                 </div>
-                <h1 className={`font-old lg:text-3xl md:text-xl text-lg ${boldText} mt-12 text-left`}>Explore by Genre</h1>
-                <h3 className={`lg:text-xl md:text-lg text-md ${boldText} mt-5 text-left`}>• Adventure:</h3>
+                <h1 className={`font-old lg:text-3xl text-2xl mb-3 ${boldText} mt-12 text-left`}>Explore by Genre</h1>
+                <h3 className={`lg:text-3xl md:text-2xl mb-3 text-xl ${boldText} mt-5 text-left`}>• Adventure:</h3>
                 <div className="lg:grid-cols-3 md:grid-cols-2 grid-cols-1 grid gap-6">
                     {
                         adventure.map(card => <div key={card._id} className={`${bg} border ${border} h-full rounded-xl p-7`}>
@@ -143,7 +143,7 @@ const Home = () => {
                         </div>)
                     }
                 </div>
-                <h3 className={`lg:text-xl md:text-lg text-md ${boldText} mt-5 text-left`}>• Action:</h3>
+                <h3 className={`lg:text-3xl md:text-2xl mb-3 text-xl ${boldText} mt-5 text-left`}>• Action:</h3>
                 <div className="lg:grid-cols-3 md:grid-cols-2 grid-cols-1 grid gap-6">
                     {
                         action.map(card => <div key={card._id} className={`${bg} border ${border} h-full rounded-xl p-7`}>
@@ -154,7 +154,7 @@ const Home = () => {
                         </div>)
                     }
                 </div>
-                <h3 className={`lg:text-xl md:text-lg text-md ${boldText} mt-5 text-left`}>• RPG:</h3>
+                <h3 className={`lg:text-3xl md:text-2xl mb-3 text-xl ${boldText} mt-5 text-left`}>• RPG:</h3>
                 <div className="lg:grid-cols-3 md:grid-cols-2 grid-cols-1 grid gap-6">
                     {
                         rpg.map(card => <div key={card._id} className={`${bg} border ${border} h-full rounded-xl p-7`}>
