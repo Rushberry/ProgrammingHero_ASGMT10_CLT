@@ -29,7 +29,7 @@ const Review = () => {
             body: JSON.stringify(watch)
         })
             .then(res => res.json())
-            .then(data => console.log(data))
+            .then(data => console.log('View All The Reviews'))
     }
     return (
         <div className="bg-[url('https://wallpapers.com/images/high/red-gaming-zfvvm7d6cpq155ei.webp')] flex justify-center items-center h-auto bg-cover bg-no-repeat">

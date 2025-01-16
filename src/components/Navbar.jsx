@@ -17,7 +17,7 @@ const Navbar = () => {
         signOutUser()
         navigate('/')
     }
-    console.log(user)
+    //console.log(user)
     const handleChangeTheme = () => {
         setTheme(!theme)
     }

@@ -29,7 +29,7 @@ const AddReview = () => {
         })
         .then(res => res.json())
         .then(data => {
-            // console.log(data)
+            // //console.log(data)
         toast.success('Review Added Successfully!', {
             position: "top-right",
             autoClose: 2000,

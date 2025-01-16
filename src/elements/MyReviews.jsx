@@ -21,7 +21,7 @@ const MyReviews = () => {
         })
             .then(res => res.json())
             .then(data => {
-                console.log(data)
+                //console.log(data)
                 fetch('https://chill-gamer-server-virid.vercel.app/myReviews', {
                     method: 'POST',
                     headers: { 'content-type': 'application/json' },

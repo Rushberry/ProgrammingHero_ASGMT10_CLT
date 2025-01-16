@@ -22,7 +22,7 @@ const Register = () => {
         const passwordRegex = /^(?=.*[a-z])(?=.*[A-Z]).{6,}$/;
         if (!passwordRegex.test(password)) {
             setError('Password must have at least 1 uppercase letter, 1 lowercase letter, and be at least 6 characters long.');
-            console.log(error)
+            //console.log(error)
             return;
         }
         createUser(email, password)
@@ -60,7 +60,7 @@ const Register = () => {
         signInWithGoogle()
             .then(result => {
                 setUser(result.user)
-                // console.log(result)
+                // //console.log(result)
                 toast.success('Registered Successfully!', {
                     position: "top-right",
                     autoClose: 2000,
