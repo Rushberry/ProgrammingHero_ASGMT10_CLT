@@ -21,7 +21,9 @@ const Home = () => {
     useEffect(() => {
         fetch('https://chill-gamer-server-virid.vercel.app/highRated')
             .then(res => res.json())
-            .then(data => setHighRated(data))
+            .then(data => {
+                const sortData = [...data].sort((a,b) => b.rating - a.rating);
+                setHighRated(sortData)})
         fetch('https://chill-gamer-server-virid.vercel.app/latest')
             .then(res => res.json())
             .then(data => setLatest(data))
