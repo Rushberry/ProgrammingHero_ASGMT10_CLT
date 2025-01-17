@@ -1,6 +1,7 @@
-import { useState } from "react";
+import { useContext, useState } from "react";
 import { useLoaderData, useNavigate } from "react-router-dom";
 import { ToastContainer, toast } from 'react-toastify';
+import { AuthContext } from "../providers/AuthProvider";
 
 
 const Update = () => {
@@ -9,8 +10,9 @@ const Update = () => {
     let data = loader[0];
     const [genres, setGenres] = useState(data.genres)
     let year = new Date().getFullYear()
-    const user = "Rushberry"
-    const userEmail = "info.rushberry@gmail.com"
+    const { user } = useContext(AuthContext)
+    const userName = user.displayName;
+    const userEmail = user.email;
     const handleSubmit = e => {
         e.preventDefault()
         const form = e.target;
@@ -63,7 +65,7 @@ const Update = () => {
                         <option value="RPG">RPG</option>
                         <option value="Adventure">Adventure</option>
                     </select>
-                    <input className="p-4 rounded-2xl opacity-1" value={user} disabled name="name" type="email" placeholder="User Email*" required />
+                    <input className="p-4 rounded-2xl opacity-1" value={userName} disabled name="name" type="email" placeholder="User Email*" required />
                     <input className="p-4 rounded-2xl opacity-1" value={userEmail} disabled name="email" type="text" placeholder="User Name*" required />
                     <button className="bg-red-900 font-old  rounded-2xl w-[200px] font-semibold  py-[11px] cursor-pointer text-white text-[20px] flex justify-center items-center gap-[14px]" type="submit">Update</button>
                 </form>
